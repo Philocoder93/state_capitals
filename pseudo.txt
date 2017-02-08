@@ -1,0 +1,5 @@
+steps that have to be taken in order to create game
+
+1.randomize array (easy enough, just use shuffle)
+2.grab first element out of randomized array (alternative plan: use sample)
+3.

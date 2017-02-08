@@ -1,4 +1,5 @@
-# an array of state hashes
+require 'pry'
+
 states =[
 {
     name: "Alabama",
@@ -151,3 +152,69 @@ states =[
     name: "Wyoming",
     capital: "Cheyenne"
 }]
+
+this_round = []
+puts "Hey there, want to learn some capitals? (y/n)"
+response = gets.chomp
+if response == 'y'
+  puts "Wonderful!"
+  this_round = states
+else
+  puts "Another time then!"
+end
+
+while this_round.length != 0
+  this_question = this_round.sample
+  puts "what is the capital of #{this_question[:name]}?"
+  response = gets.chomp
+  if response == this_question[:capital]
+    puts "Correct!"
+    this_round.slice!(this_round.index this_question)
+  else
+    if this_question[:guess] == nil
+      this_question[:guess] = 1
+    elsif this_question[:guess] == 1
+      this_question[:guess] = 2
+    elsif this_question[:guess] == 2
+      puts "Out of guesses!"
+      this_round.slice!(this_round.index this_question)
+    end 
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+binding.pry
+
+puts "program resumes here."
+
+# this_round = states
+#
+# this_question = this_round.sample
+#
+# this_round.slice!(this_round.index this_question)
