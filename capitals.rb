@@ -158,7 +158,7 @@ puts "Hey there, want to learn some capitals? (y/n)"
 response = gets.chomp
 if response == 'y'
   puts "Wonderful!"
-  this_round = states
+  this_round = Marshal.load(Marshal.dump(states.shuffle))
 else
   puts "Another time then!"
 end
@@ -178,7 +178,7 @@ while this_round.length != 0
     elsif this_question[:guess] == 2
       puts "Out of guesses!"
       this_round.slice!(this_round.index this_question)
-    end 
+    end
   end
 end
 
